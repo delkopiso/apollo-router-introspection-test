@@ -1,0 +1,6 @@
+overwrite: true
+schema: "http://gateway:4000/graphql"
+generates:
+  gen.gateway.ts:
+    plugins:
+      - "typescript"

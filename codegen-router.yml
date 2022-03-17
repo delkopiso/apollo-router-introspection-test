@@ -1,0 +1,6 @@
+overwrite: true
+schema: "http://router:4000/graphql"
+generates:
+  gen.router.ts:
+    plugins:
+      - "typescript"

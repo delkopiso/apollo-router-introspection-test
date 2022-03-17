@@ -1,0 +1,26 @@
+services:
+  gateway:
+    build: gateway
+    environment:
+      APOLLO_GRAPH_REF: ${GATEWAY_APOLLO_GRAPH_REF}
+      APOLLO_KEY: ${GATEWAY_APOLLO_KEY}
+
+  router:
+    build: router
+    environment:
+      APOLLO_GRAPH_REF: ${ROUTER_APOLLO_GRAPH_REF}
+      APOLLO_KEY: ${ROUTER_APOLLO_KEY}
+
+  generate-gateway:
+    build:
+      context: .
+      target: gateway
+    depends_on:
+      - gateway
+
+  generate-router:
+    build:
+      context: .
+      target: router
+    depends_on:
+      - router
